@@ -18,6 +18,7 @@ Buildrequires:	perl(Module::Build)
 Buildrequires:	perl(Pod::Simple)
 Requires:	    perl(Pod::Simple)
 BuildArch:	noarch
+BuildRoot:	%{_tmppath}/%{name}-%{version}
 
 %description
 Pod::Strip is a subclass of Pod::Simple that strips all POD from Perl Code.

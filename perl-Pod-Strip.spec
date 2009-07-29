@@ -1,16 +1,16 @@
-%define	module	Pod-Strip
-%define	name	perl-%{module}
-%define version 1.02
-%define release %mkrel 7
+%define	upstream_name	 Pod-Strip
+%define upstream_version 1.02
 
-Name:		%{name}
-Version:	%{version}
-Release:	%{release}
-License:	GPL or Artistic
-Group:		Development/Perl
+Name:       perl-%{upstream_name}
+Version:    %perl_convert_version %{upstream_version}
+Release:    %mkrel 1
+
 Summary:	Remove POD from Perl code 
-Url:		http://search.cpan.org/dist/%{module}/
-Source:     http://www.cpan.org/modules/by-module/Pod/%{module}-%{version}.tar.bz2
+License:	GPL+ or Artistic
+Group:		Development/Perl
+Url:		http://search.cpan.org/dist/%{upstream_name}/
+Source0:    http://www.cpan.org/modules/by-module/Pod/%{upstream_name}-%{upstream_version}.tar.bz2
+
 %if %{mdkversion} < 1010
 BuildRequires:	perl-devel
 %endif
@@ -18,13 +18,13 @@ Buildrequires:	perl(Module::Build)
 Buildrequires:	perl(Pod::Simple)
 Requires:	    perl(Pod::Simple)
 BuildArch:	noarch
-BuildRoot:	%{_tmppath}/%{name}-%{version}
+BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}
 
 %description
 Pod::Strip is a subclass of Pod::Simple that strips all POD from Perl Code.
 
 %prep
-%setup -q -n %{module}-%{version}
+%setup -q -n %{upstream_name}-%{upstream_version}
 
 %build
 %{__perl} Build.PL installdirs=vendor
@@ -45,5 +45,3 @@ rm -rf %{buildroot}
 %doc Changes README
 %{perl_vendorlib}/Pod
 %{_mandir}/man3/*
-
-

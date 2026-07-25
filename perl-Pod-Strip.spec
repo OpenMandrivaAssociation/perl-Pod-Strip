@@ -1,15 +1,15 @@
 %define	upstream_name	 Pod-Strip
-%define upstream_version 1.02
+%define upstream_version 1.100
 
 Name:       perl-%{upstream_name}
-Version:    %perl_convert_version %{upstream_version}
-Release:    3
+Version:    %{upstream_version}
+Release:    1
 
 Summary:	Remove POD from Perl code 
 License:	GPL+ or Artistic
 Group:		Development/Perl
-Url:		https://search.cpan.org/dist/%{upstream_name}/
-Source0:    http://www.cpan.org/modules/by-module/Pod/%{upstream_name}-%{upstream_version}.tar.bz2
+Url:		https://github.com/domm/Pod-Strip
+Source0:    https://cpan.metacpan.org/authors/id/D/DO/DOMM/Pod-Strip-%{upstream_version}.tar.gz
 
 %if %{mdkversion} < 1010
 BuildRequires:	perl-devel

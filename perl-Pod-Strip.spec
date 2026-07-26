@@ -1,15 +1,13 @@
 %define	upstream_name	 Pod-Strip
-%define upstream_version 1.100
-
 Name:       perl-%{upstream_name}
-Version:    %{upstream_version}
-Release:    1
+Version:    1.100
+Release:    2
 
 Summary:	Remove POD from Perl code 
 License:	GPL+ or Artistic
 Group:		Development/Perl
 Url:		https://github.com/domm/Pod-Strip
-Source0:    https://cpan.metacpan.org/authors/id/D/DO/DOMM/Pod-Strip-%{upstream_version}.tar.gz
+Source0:    https://cpan.metacpan.org/authors/id/D/DO/DOMM/Pod-Strip-%{version}.tar.gz
 
 %if %{mdkversion} < 1010
 BuildRequires:	perl-devel
@@ -24,7 +22,7 @@ BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}
 Pod::Strip is a subclass of Pod::Simple that strips all POD from Perl Code.
 
 %prep
-%setup -q -n %{upstream_name}-%{upstream_version}
+%setup -q -n %{upstream_name}-%{version}
 
 %build
 %{__perl} Build.PL installdirs=vendor
@@ -50,9 +48,7 @@ rm -rf %{buildroot}
 %changelog
 * Wed Jul 29 2009 Jérôme Quelin <jquelin@mandriva.org> 1.20.0-1mdv2010.0
 + Revision: 404296
-- rebuild using %%perl_convert_version
-
-* Thu Jul 31 2008 Thierry Vignaud <tvignaud@mandriva.com> 1.02-7mdv2009.0
+- rebuild using %1.100 Thu Jul 31 2008 Thierry Vignaud <tvignaud@mandriva.com> 1.02-7mdv2009.0
 + Revision: 258268
 - rebuild
 
